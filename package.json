@@ -1,14 +1,13 @@
 {
-  "name": "my-starter-kit",
-  "version": "1.0.0",
+  "name": "dashboard-shell",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress",
-    "app": "webpack -d --config app.webpack.config.js -w",
     "shell": "webpack -d --dispalay-modules -w",
-    "live-server": "live-server --port=8888 build/",
-    "build:all": "npm-run-all --parallel live-server shell app",
+    "live-server": "live-server --port=8888 --entry-file=index.html build/",
+    "build:all": "npm-run-all --parallel live-server shell",
     "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,1 +1,3 @@
-module.exports = 'd3 app'
+module.exports = {
+  view: 'd3 app'
+}

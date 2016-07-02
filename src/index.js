@@ -1,4 +1,6 @@
-console.info('shell is loading');
+import Router from './router'
+import Outlet from './outlet'
+
 
 const loadApp = (appName) => {
   System.import(`apps/${appName}.js`).then(
@@ -15,16 +17,22 @@ const loadApp = (appName) => {
 }
 
 const bootShell = () => {
-   document.querySelector('#apps').addEventListener('click', (evt) => {
+    const outlet = new Outlet(document.querySelector('#outlet'))
+    const router = new Router(outlet)
+    router.start()
+
+
+    document.querySelector('#apps').addEventListener('click', (evt) => {
       if(evt.target.tagName !== 'A'){
         return;
       }
-      
-      evt.preventDefault()
-      const appName = evt.target.getAttribute('href').slice(1)
 
-      loadApp(appName)
-   })
+      // const appName = evt.target.getAttribute('href').slice(1)
+      //loadApp(appName)
+      evt.preventDefault()
+      router.navigate(evt.target.href)
+    })
 }
+
 
 document.addEventListener('DOMContentLoaded', bootShell)

@@ -1,6 +1,10 @@
 let counter = 0
 
-export const inc = () => {
+const inc = () => {
    counter++
-   console.info(counter)
+   console.info('a->' + counter)
+}
+
+module.exports =  { 
+   view: '<strong>Application 1</strong>'
 }
